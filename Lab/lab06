@@ -1,27 +1,21 @@
 #include <stdio.h>
 
 int main() {
-    int N ;
-    printf( "Enter value : " ) ;
-    scanf( "%d",&N ) ;
-    if( N % 2 != 0 ) {
-        printf( "Series : ") ;
-        for( int i = 1 ; i <= N ; i += 2 ) {
-            if(  i % 2 != 0) {
-                printf( "%d ",i ) ;
-            }//end if
+    int N;
+    printf("Enter value: ");
+    scanf("%d", &N);
+    
+    if (N % 2 != 0) { 
+        printf("Series: ");
+        for (int i = 1; i <= N; i += 2) {
+            printf("%d ", i);
         }//end for
-        printf( "\n" ) ;
-    }//end if 
-    else{
-        printf( "Series : " ) ;
-        for( int i = N ; i >= 0 ; i -= 2  ) {
-            if( i % 2 == 0 ) {
-                printf( "%d ",i ) ;
-            }//end if
+    } 
+    else { 
+        printf("Series: ");
+        for (int i = N; i >= 0; i -= 2) {
+            printf("%d ", i);
         }//end for
-        printf( "\n" ) ;
-    }
-
-    return 0 ;
+    }//end if   
+    return 0;
 }//end function
