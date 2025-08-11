@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+int main() {
+    char name1[20] ;
+    char name2[20] ;
+
+    printf( "First Name: " ) ;
+    scanf( "%s", name1 ) ;
+    printf( "Last Name: " ) ;
+    scanf( "%s", name2 ) ;
+    printf("%s %s ", name1, name2) ;
+    printf( "TC, " ) ;
+    printf( "RMUTL, " ) ;
+    printf( "Chaing Mai, " ) ;
+    printf( "Thailand " ) ;
+
+    return 0 ;
+}//end function
