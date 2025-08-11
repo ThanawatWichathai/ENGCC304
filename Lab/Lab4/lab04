@@ -1,1 +1,18 @@
+#include <stdio.h>
 
+int main() {
+    char ID[10] ;
+    int hrs ;
+    float salary ;
+    salary = hrs * salary ;
+    printf( "Input the Employees ID : " ) ;
+    scanf( "%s",ID ) ;
+    printf( "Input the working hrs : " ) ;
+    scanf( "%d",&hrs ) ;
+    printf( "Salary amout/hrs : " ) ;
+    scanf( "%f",&salary  ) ;
+    printf( "Expected Output :\n" ) ;
+    printf( "Employees ID = %s\n",ID ) ;
+    printf( "Salary =%.2f",salary ) ;
+    return 0 ;
+}//end function
