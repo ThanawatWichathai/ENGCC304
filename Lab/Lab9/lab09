@@ -1,1 +1,48 @@
+#include <stdio.h>
 
+int main() {
+	
+	int n = 0 ;
+	
+	printf( "Enter N: \n" ) ;
+	scanf( "%d", &n ) ;
+	
+	int Num[n] ;
+	
+	for(int i = 0 ; i < n ; i++ ) {
+		printf( "Enter value[%d] : ", i ) ;
+		scanf( "%d", &Num[i] ) ;
+	}//end for
+	
+	printf( "\nIndex: " ) ;
+	for( int i = 0 ; i < n ; i++ ) {
+		printf( "%d ", Num[i] ) ;
+	}//end for
+	
+	int isPrime = 0 ;
+	int j = 0 ;
+	
+ 	printf("\nArray: ") ;
+    for (int i = 0 ; i < n ; i++) {
+        isPrime = 1 ; 
+
+        if (Num[i] < 2)
+            isPrime = 0 ;
+        else {
+            for ( j = 2 ; j * j <= Num[i] ; j++) {
+                if (Num[i] % j == 0) {
+                    isPrime = 0 ;
+                    break ; 
+                }//end if
+            }//end for
+        }//end if
+
+        if (isPrime == 1) {
+            printf("%d ", Num[i]) ;
+        }else {
+            printf("# ") ;
+    	}//end if
+    }//end for
+	
+	return 0 ;
+}//end function
