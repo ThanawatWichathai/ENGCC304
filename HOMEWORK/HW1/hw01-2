@@ -1,9 +1,18 @@
-#include <stdio.h>
+#include <stdio.h> 
 
 int main() {
-
-    printf( "Hello, I'm Top (RMUTL-Version).\n" ) ;
-    printf( "This is my first time to coding with C language.\n" ) ;
-    printf( "To day is my birthday.\n" ) ;
-    return 0 ;
+	
+    char Name[50] ;
+    int  Age = 0 ;
+    
+    printf( "Enter your name: " ) ; 
+    scanf( "%s", Name ) ;
+    
+    printf( "Enter your age: " ) ;
+    scanf( "%d",&Age ) ;
+    
+    printf( "- - - - - -\n" ) ;
+    printf( "Hello %s\n", Name) ; 
+    printf( "Age = %d\n", Age ) ; 
+    
 }//end function
