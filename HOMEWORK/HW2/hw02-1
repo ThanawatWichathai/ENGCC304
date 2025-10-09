@@ -1,0 +1,126 @@
+<mxGraphModel dx="820" dy="646" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+  <root>
+    <mxCell id="0" />
+    <mxCell id="1" parent="0" />
+
+    <!-- Main Start -->
+    <mxCell id="start_main" value="Start" style="ellipse" vertex="1" parent="1">
+      <mxGeometry x="380" y="20" width="80" height="40" as="geometry" />
+    </mxCell>
+
+    <!-- เตรียมอุปกรณ์และวัตถุดิบ -->
+    <mxCell id="process_prepare" value="เรียกฟังก์ชัน เตรียมอุปกรณ์และวัตถุดิบ" style="rectangle;shape=process" vertex="1" parent="1">
+      <mxGeometry x="330" y="80" width="180" height="60" as="geometry" />
+    </mxCell>
+
+    <!-- ฟังก์ชัน เตรียมอุปกรณ์และวัตถุดิบ -->
+    <mxCell id="func_prepare" value="Function: เตรียมอุปกรณ์และวัตถุดิบ" style="swimlane;horizontal=0" vertex="1" parent="1">
+      <mxGeometry x="100" y="160" width="600" height="200" as="geometry" />
+    </mxCell>
+
+    <mxCell id="process_gather_utensils" value="จัดเตรียมอุปกรณ์ครัว: กระทะ, ตะหลิว, ช้อน, มีด" style="rectangle;shape=process" vertex="1" parent="func_prepare">
+      <mxGeometry x="20" y="20" width="260" height="40" as="geometry" />
+    </mxCell>
+
+    <mxCell id="process_gather_ingredients" value="จัดเตรียมวัตถุดิบ: หมูกรอบ, พริก, กระเทียม, ไข่เยี่ยวม้า, ใบกะเพรา, ข้าวสวย" style="rectangle;shape=process" vertex="1" parent="func_prepare">
+      <mxGeometry x="320" y="20" width="260" height="40" as="geometry" />
+    </mxCell>
+
+    <mxCell id="stop_func_prepare" value="End Function" style="ellipse" vertex="1" parent="func_prepare">
+      <mxGeometry x="240" y="100" width="120" height="40" as="geometry" />
+    </mxCell>
+
+    <!-- เรียก Function การเตรียมวัตถุดิบ -->
+    <mxCell id="process_cooking" value="เรียกฟังก์ชัน การผัดและปรุงรส" style="rectangle;shape=process" vertex="1" parent="1">
+      <mxGeometry x="330" y="400" width="180" height="60" as="geometry" />
+    </mxCell>
+
+    <!-- Function การผัดและปรุงรส -->
+    <mxCell id="func_cook" value="Function: การผัดและปรุงรส" style="swimlane;horizontal=0" vertex="1" parent="1">
+      <mxGeometry x="100" y="480" width="600" height="300" as="geometry" />
+    </mxCell>
+
+    <mxCell id="process_heat_oil" value="ตั้งกระทะบนเตา ใส่น้ำมันให้ร้อน" style="rectangle;shape=process" vertex="1" parent="func_cook">
+      <mxGeometry x="20" y="20" width="260" height="40" as="geometry" />
+    </mxCell>
+
+    <mxCell id="process_fry_garlic" value="ใส่กระเทียมสับลงผัดจนหอม" style="rectangle;shape=process" vertex="1" parent="func_cook">
+      <mxGeometry x="320" y="20" width="260" height="40" as="geometry" />
+    </mxCell>
+
+    <mxCell id="process_fry_pork" value="ใส่หมูกรอบลงผัดจนสุกกรอบ" style="rectangle;shape=process" vertex="1" parent="func_cook">
+      <mxGeometry x="20" y="80" width="260" height="40" as="geometry" />
+    </mxCell>
+
+    <mxCell id="process_add_seasoning" value="ใส่พริก, น้ำปลา, น้ำตาล, ซอสปรุงรส ลงผัดให้เข้ากัน" style="rectangle;shape=process" vertex="1" parent="func_cook">
+      <mxGeometry x="320" y="80" width="260" height="40" as="geometry" />
+    </mxCell>
+
+    <mxCell id="process_add_basil" value="ใส่ใบกะเพราลงผัดเร็ว ๆ" style="rectangle;shape=process" vertex="1" parent="func_cook">
+      <mxGeometry x="20" y="140" width="260" height="40" as="geometry" />
+    </mxCell>
+
+    <mxCell id="process_plate_rice" value="ตักข้าวสวยใส่จาน" style="rectangle;shape=process" vertex="1" parent="func_cook">
+      <mxGeometry x="320" y="140" width="260" height="40" as="geometry" />
+    </mxCell>
+
+    <mxCell id="process_serve" value="ตักผัดกะเพราลงบนข้าว พร้อมวางไข่เยี่ยวม้า" style="rectangle;shape=process" vertex="1" parent="func_cook">
+      <mxGeometry x="170" y="200" width="260" height="40" as="geometry" />
+    </mxCell>
+
+    <mxCell id="stop_func_cook" value="End Function" style="ellipse" vertex="1" parent="func_cook">
+      <mxGeometry x="240" y="260" width="120" height="40" as="geometry" />
+    </mxCell>
+
+    <!-- Main Stop -->
+    <mxCell id="stop_main" value="Stop" style="ellipse" vertex="1" parent="1">
+      <mxGeometry x="380" y="780" width="80" height="40" as="geometry" />
+    </mxCell>
+
+    <!-- Connectors -->
+    <mxCell id="edge_start_prepare" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1" edge="1" source="start_main" target="process_prepare" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <mxCell id="edge_prepare_cooking" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1" edge="1" source="process_prepare" target="process_cooking" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <mxCell id="edge_cooking_stop" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1" edge="1" source="process_cooking" target="stop_main" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- Connectors function prepare -->
+    <mxCell id="edge_func_prepare1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1" edge="1" source="process_gather_utensils" target="process_gather_ingredients" parent="func_prepare">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="edge_func_prepare2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1" edge="1" source="process_gather_ingredients" target="stop_func_prepare" parent="func_prepare">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- Connectors function cook -->
+    <mxCell id="edge_func_cook1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1" edge="1" source="process_heat_oil" target="process_fry_garlic" parent="func_cook">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="edge_func_cook2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1" edge="1" source="process_fry_garlic" target="process_fry_pork" parent="func_cook">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="edge_func_cook3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1" edge="1" source="process_fry_pork" target="process_add_seasoning" parent="func_cook">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="edge_func_cook4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1" edge="1" source="process_add_seasoning" target="process_add_basil" parent="func_cook">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="edge_func_cook5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1" edge="1" source="process_add_basil" target="process_plate_rice" parent="func_cook">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="edge_func_cook6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1" edge="1" source="process_plate_rice" target="process_serve" parent="func_cook">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="edge_func_cook7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1" edge="1" source="process_serve" target="stop_func_cook" parent="func_cook">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+  </root>
+</mxGraphModel>
+
