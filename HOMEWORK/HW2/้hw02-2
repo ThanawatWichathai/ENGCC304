@@ -4,79 +4,114 @@
     <mxCell id="1" parent="0"/>
     
     <!-- Start -->
-    <mxCell id="2" value="Start" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-      <mxGeometry x="360" y="20" width="120" height="60" as="geometry"/>
+    <mxCell id="start" value="Start" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+      <mxGeometry x="300" y="20" width="100" height="40" as="geometry"/>
     </mxCell>
     
-    <!-- Init Process -->
-    <mxCell id="3" value="ตั้งค่ารายการสินค้า, ราคา, จำนวนเงินเริ่มต้นในตู้, สต๊อกสินค้า" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-      <mxGeometry x="300" y="100" width="240" height="80" as="geometry"/>
+    <!-- Initialize variables -->
+    <mxCell id="init_vars" value="กำหนดชื่อสินค้า, ราคาสินค้า และเงินเริ่มต้นในตู้" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+      <mxGeometry x="200" y="80" width="300" height="80" as="geometry"/>
     </mxCell>
     
-    <!-- Input/Output Menu -->
-    <mxCell id="4" value="แสดงเมนูสินค้าและตัวเลือก: เลือกสินค้า / Checkout / Cancel / เติม Stock / เช็ค Stock" style="parallelogram;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-      <mxGeometry x="260" y="220" width="320" height="80" as="geometry"/>
+    <!-- Welcome Message -->
+    <mxCell id="welcome" value="แสดงข้อความต้อนรับผู้ใช้" style="parallelogram;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+      <mxGeometry x="200" y="180" width="300" height="40" as="geometry"/>
     </mxCell>
     
-    <!-- Condition: Choice -->
-    <mxCell id="5" value="ลูกค้าเลือกอะไร?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-      <mxGeometry x="360" y="340" width="120" height="80" as="geometry"/>
+    <!-- Loop start -->
+    <mxCell id="while_start" value="เริ่มลูปเลือกสินค้า" style="diamond;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+      <mxGeometry x="250" y="240" width="200" height="60" as="geometry"/>
     </mxCell>
     
-    <!-- Process: Add Product -->
-    <mxCell id="6" value="เพิ่มสินค้าลงในตะกร้า, รวมยอดรวม, ลดสต๊อกสินค้า 1 ชิ้น" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-      <mxGeometry x="300" y="460" width="240" height="80" as="geometry"/>
+    <!-- Display menu -->
+    <mxCell id="display_menu" value="แสดงรายการสินค้าและตัวเลือก Checkout/Cancel" style="parallelogram;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+      <mxGeometry x="200" y="320" width="300" height="100" as="geometry"/>
     </mxCell>
     
-    <!-- Condition: Checkout -->
-    <mxCell id="7" value="เลือก Checkout?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-      <mxGeometry x="360" y="580" width="120" height="80" as="geometry"/>
+    <!-- Input choice -->
+    <mxCell id="input_choice" value="รับค่าตัวเลือกจากผู้ใช้" style="parallelogram;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+      <mxGeometry x="200" y="440" width="300" height="40" as="geometry"/>
     </mxCell>
     
-    <!-- Process: Payment -->
-    <mxCell id="8" value="รับเงินลูกค้า, คำนวณเงินทอน, แสดงรายละเอียดธนบัตรและเหรียญ, เพิ่มยอดเงินในตู้" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-      <mxGeometry x="260" y="700" width="320" height="120" as="geometry"/>
+    <!-- Condition: choice 1-7 -->
+    <mxCell id="choice_1_7" value="ตัวเลือก 1-7?" style="diamond;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+      <mxGeometry x="250" y="500" width="200" height="60" as="geometry"/>
     </mxCell>
     
-    <!-- Condition: Cancel -->
-    <mxCell id="9" value="เลือก Cancel?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-      <mxGeometry x="520" y="340" width="120" height="80" as="geometry"/>
+    <!-- Add selected item -->
+    <mxCell id="add_item" value="บวกราคาสินค้าเข้า total_cost และแสดงข้อความเพิ่มสินค้า" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+      <mxGeometry x="200" y="580" width="300" height="80" as="geometry"/>
     </mxCell>
     
-    <!-- Process: Transaction Cancelled -->
-    <mxCell id="10" value="ยกเลิกรายการ" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-      <mxGeometry x="500" y="460" width="160" height="60" as="geometry"/>
+    <!-- Condition: choice = 8 -->
+    <mxCell id="choice_8" value="ตัวเลือก = 8?" style="diamond;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+      <mxGeometry x="250" y="680" width="200" height="60" as="geometry"/>
     </mxCell>
     
-    <!-- Process: Stock Management -->
-    <mxCell id="11" value="เติม Stock หรือเช็ค Stock" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-      <mxGeometry x="100" y="460" width="200" height="80" as="geometry"/>
+    <!-- Checkout -->
+    <mxCell id="checkout" value="แสดงข้อความ Proceeding to checkout และออกจากลูป" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+      <mxGeometry x="200" y="760" width="300" height="60" as="geometry"/>
+    </mxCell>
+    
+    <!-- Condition: choice = 0 -->
+    <mxCell id="choice_0" value="ตัวเลือก = 0?" style="diamond;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+      <mxGeometry x="250" y="840" width="200" height="60" as="geometry"/>
+    </mxCell>
+    
+    <!-- Cancel transaction -->
+    <mxCell id="cancel" value="แสดงข้อความยกเลิกและ Stop" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+      <mxGeometry x="200" y="920" width="300" height="40" as="geometry"/>
+    </mxCell>
+    
+    <!-- Invalid option -->
+    <mxCell id="invalid" value="แสดงข้อความ Invalid option" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+      <mxGeometry x="200" y="1000" width="300" height="40" as="geometry"/>
+    </mxCell>
+    
+    <!-- Condition: total_cost > 0 -->
+    <mxCell id="total_cost_check" value="total_cost > 0?" style="diamond;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+      <mxGeometry x="250" y="1080" width="200" height="60" as="geometry"/>
+    </mxCell>
+    
+    <!-- Checkout summary -->
+    <mxCell id="checkout_summary" value="แสดงรายการเช็กเอาต์และรับเงินจากผู้ใช้" style="parallelogram;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+      <mxGeometry x="200" y="1160" width="300" height="80" as="geometry"/>
+    </mxCell>
+    
+    <!-- Condition: payment < total_cost -->
+    <mxCell id="payment_check" value="เงินไม่พอ?" style="diamond;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+      <mxGeometry x="250" y="1260" width="200" height="60" as="geometry"/>
+    </mxCell>
+    
+    <!-- Transaction cancelled due to insufficient payment -->
+    <mxCell id="payment_fail" value="แสดงข้อความเงินไม่พอ" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+      <mxGeometry x="200" y="1340" width="300" height="40" as="geometry"/>
+    </mxCell>
+    
+    <!-- Calculate change -->
+    <mxCell id="calculate_change" value="คำนวณเงินทอนและแสดงรายละเอียดธนบัตร/เหรียญ" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+      <mxGeometry x="200" y="1420" width="300" height="120" as="geometry"/>
+    </mxCell>
+    
+    <!-- Thank you message -->
+    <mxCell id="thank_you" value="แสดงข้อความ Thank you" style="parallelogram;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+      <mxGeometry x="200" y="1560" width="300" height="40" as="geometry"/>
+    </mxCell>
+    
+    <!-- No items selected -->
+    <mxCell id="no_items" value="แสดงข้อความไม่ได้เลือกสินค้า" style="parallelogram;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+      <mxGeometry x="200" y="1640" width="300" height="40" as="geometry"/>
+    </mxCell>
+    
+    <!-- Final cash in drawer -->
+    <mxCell id="final_cash" value="แสดงยอดเงินสุดท้ายในตู้" style="parallelogram;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+      <mxGeometry x="200" y="1720" width="300" height="60" as="geometry"/>
     </mxCell>
     
     <!-- Stop -->
-    <mxCell id="12" value="Stop" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-      <mxGeometry x="360" y="860" width="120" height="60" as="geometry"/>
+    <mxCell id="stop" value="Stop" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+      <mxGeometry x="300" y="1800" width="100" height="40" as="geometry"/>
     </mxCell>
-
-    <!-- Edges -->
-    <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="2" target="3">
-      <mxGeometry relative="1" as="geometry"/>
-    </mxCell>
-    <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="3" target="4">
-      <mxGeometry relative="1" as="geometry"/>
-    </mxCell>
-    <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="4" target="5"/>
-    <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="5" target="6">
-      <mxGeometry relative="1" as="geometry"/>
-    </mxCell>
-    <mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="6" target="4"/>
-    <mxCell id="e6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="5" target="7"/>
-    <mxCell id="e7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="7" target="8"/>
-    <mxCell id="e8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="5" target="9"/>
-    <mxCell id="e9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="9" target="10"/>
-    <mxCell id="e10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="8" target="12"/>
-    <mxCell id="e11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="10" target="12"/>
-    <mxCell id="e12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="4" target="11"/>
-    <mxCell id="e13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="11" target="4"/>
+    
   </root>
 </mxGraphModel>
