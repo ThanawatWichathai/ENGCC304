@@ -1,1 +1,57 @@
+#include <stdio.h>
 
+int main() {
+
+    int position = 0 ;
+    int years = 0 ;
+    int projects = 0 ;
+    float salary = 0 ;
+    float experience = 0 ;
+    float bonus = 0 ;
+    float netsalary = 0 ;
+    
+    printf( "Position ( 1=Junior Programmer, 2=Mid-level Programmer, 3=Senior Programmer ): " ) ;
+    scanf( "%d",&position ) ;
+
+    printf( "Years of Experience: " ) ;
+    scanf( "%d",&years ) ;
+
+    printf( "Number of Projects Completed this Year: " ) ;
+    scanf( "%d",&projects ) ;
+
+    switch (position) {
+        case 1: 
+            salary = 20000 ;
+            break ;
+        case 2: 
+            salary = 35000 ;
+            break ;
+        case 3: 
+            salary = 50000 ;
+            break ;
+    }//end switch
+
+    if( years < 1 ) {
+        experience = 0 ;
+    }else if( years >= 1 && years <= 3 ) {
+        experience = salary * 0.10 ;
+    }else if( years >= 4 && years <= 5 ) {
+        experience = salary * 0.15 ;
+    }else if( years > 5 ) {
+        experience = salary * 0.20 ;
+    }//end if
+
+    if( projects > 5 ) {
+        bonus = salary * 0.05 ;
+    }//end if
+
+    netsalary = salary + experience + bonus ;
+    
+	printf( "\n" ) ;
+    printf( "Base Salary: %.f THB\n", salary ) ;
+    printf( "Experience Bonus: %.f THB\n", experience ) ;
+    printf( "Special Bonus: %.f THB\n", bonus ) ;
+    printf( "Net Salary: %.f THB\n", netsalary ) ;
+
+    return 0 ;
+}//end function
