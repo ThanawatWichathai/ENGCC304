@@ -1,1 +1,32 @@
+#include <stdio.h>
 
+int main() {
+    char employee_id[11] ;
+    float working_hours = 0 ;
+    float salary_per_hour = 0 ;
+    float total_salary = 0 ;
+
+    printf( "Input the Employees ID(Max. 10 chars): " ) ;
+    if( scanf( "%10s", employee_id ) != 1 ) {
+        return 1 ;
+    }//end if
+
+    printf( "Input the working hrs: " ) ;
+    if( scanf( "%f", &working_hours ) != 1 ) {
+        return 1 ;
+    }//end if
+
+    printf( "Salary amount/hr: " ) ;
+    if( scanf( "%f", &salary_per_hour ) != 1 ) {
+        return 1 ;
+    }//end if
+
+    total_salary = working_hours * salary_per_hour ;
+
+    printf( "----\n" ) ;
+    printf( "Expected Output:\n" ) ;
+    printf( "Employees ID = %s\n", employee_id ) ;
+    printf( "Salary = U$ %.2f\n", total_salary ) ;
+
+    return 0 ;
+}//end function
