@@ -1,1 +1,156 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
+#define MAX_BOOKS 100
+#define MAX_STRING_LENGTH 100
+
+typedef struct {
+    int bookID = 0 ;
+    char title[MAX_STRING_LENGTH] ;
+    char author[MAX_STRING_LENGTH] ;
+    int year = 0 ;
+} Book ;
+
+void addBook(Book books[], int *count) ;
+void searchBook(Book books[], int count) ;
+void displayBooks(Book books[], int count) ;
+void clearInputBuffer() ;
+
+int main() {
+    Book library[MAX_BOOKS] ;
+    int bookCount = 0 ;
+    int choice = 0 ;
+
+    do {
+        printf( "\n===== Library Management System =====\n" ) ;
+        printf( "1. Add New Book\n" ) ;
+        printf( "2. Search Book by Title\n" ) ;
+        printf( "3. Display All Books\n" ) ;
+        printf( "4. Exit Program\n" ) ;
+        printf( "Choose an option: " ) ;
+
+        if( scanf( "%d", &choice ) != 1 ) {
+            printf( "Invalid input. Please enter a number.\n" ) ;
+            clearInputBuffer() ;
+            choice = 0 ;
+            continue ;
+        }//end if
+        clearInputBuffer() ;
+
+        switch (choice) {
+            case 1 :
+                addBook(library, &bookCount) ;
+                break ;
+            case 2 :
+                searchBook(library, bookCount) ;
+                break ;
+            case 3 :
+                displayBooks(library, bookCount) ;
+                break ;
+            case 4 :
+                printf( "Exiting program. Goodbye!\n" ) ;
+                break ;
+            default :
+                printf( "Invalid option. Please choose a number between 1 and 4.\n" ) ;
+        }//end switch
+    } while( choice != 4 ) ;
+
+    return 0 ;
+}//end function
+
+void clearInputBuffer() {
+    int c = 0 ;
+    while( (c = getchar()) != '\n' && c != EOF ) {
+    }//end while
+}//end function
+
+void addBook(Book books[], int *count) {
+    if( *count >= MAX_BOOKS ) {
+        printf( "Error: Library is full. Cannot add more books.\n" ) ;
+        return ;
+    }//end if
+
+    printf( "Enter Book ID: " ) ;
+    if( scanf( "%d", &books[*count].bookID ) != 1 ) {
+        printf( "Invalid input for Book ID.\n" ) ;
+        clearInputBuffer() ;
+        return ;
+    }//end if
+    clearInputBuffer() ;
+
+    printf( "Enter Title: " ) ;
+    if( fgets(books[*count].title, MAX_STRING_LENGTH, stdin) == NULL ) {
+         printf( "Error reading title.\n" ) ;
+         return ;
+    }//end if
+    books[*count].title[strcspn(books[*count].title, "\n")] = 0 ;
+
+    printf( "Enter Author: " ) ;
+    if( fgets(books[*count].author, MAX_STRING_LENGTH, stdin) == NULL ) {
+         printf( "Error reading author.\n" ) ;
+         return ;
+    }//end if
+    books[*count].author[strcspn(books[*count].author, "\n")] = 0 ;
+
+    printf( "Enter Year: " ) ;
+    if( scanf( "%d", &books[*count].year ) != 1 ) {
+        printf( "Invalid input for Year.\n" ) ;
+        clearInputBuffer() ;
+        return ;
+    }//end if
+    clearInputBuffer() ;
+
+    (*count)++ ;
+    printf( "Book added successfully!\n" ) ;
+}//end function
+
+void searchBook(Book books[], int count) {
+    char searchTitle[MAX_STRING_LENGTH] ;
+    int found = 0 ;
+
+    if( count == 0 ) {
+        printf( "No books in the library to search.\n" ) ;
+        return ;
+    }//end if
+
+    printf( "Enter Title to Search: " ) ;
+    if( fgets(searchTitle, MAX_STRING_LENGTH, stdin) == NULL ) {
+         printf( "Error reading search title.\n" ) ;
+         return ;
+    }//end if
+    searchTitle[strcspn(searchTitle, "\n")] = 0 ;
+
+    for( int i = 0 ; i < count ; i++ ) {
+        if( strcmp(books[i].title, searchTitle) == 0 ) {
+            printf( "\n--- Book Found ---\n" ) ;
+            printf( "Book ID: %d\n", books[i].bookID ) ;
+            printf( "Title: %s\n", books[i].title ) ;
+            printf( "Author: %s\n", books[i].author ) ;
+            printf( "Year: %d\n", books[i].year ) ;
+            found = 1 ;
+            break ;
+        }//end if
+    }//end for
+
+    if( !found ) {
+        printf( "Book not found.\n" ) ;
+    }//end if
+}//end function
+
+void displayBooks(Book books[], int count) {
+    if( count == 0 ) {
+        printf( "The library is currently empty.\n" ) ;
+        return ;
+    }//end if
+
+    printf( "\n===== All Books in Library (%d books) =====\n", count ) ;
+    for( int i = 0 ; i < count ; i++ ) {
+        printf( "----------------------------------------\n" ) ;
+        printf( "Book ID: %d\n", books[i].bookID ) ;
+        printf( "Title: %s\n", books[i].title ) ;
+        printf( "Author: %s\n", books[i].author ) ;
+        printf( "Year: %d\n", books[i].year ) ;
+    }//end for
+    printf( "----------------------------------------\n" ) ;
+}//end function
