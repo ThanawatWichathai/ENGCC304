@@ -1,10 +1,14 @@
 #include <stdio.h>
 
 int main() {
-    int score ;
+    int score = 0 ;
+    
     printf( "enter score : " ) ;
-    scanf( "%d",&score ) ;
-    printf( " " ) ;
+    if( scanf("%d", &score) == 0 ) {
+        printf( "please enter number only.\n" ) ;
+        return 0 ;
+	}//end if
+	
     if( score > 80 ){
         printf( "A!" ) ;
     }else 
@@ -28,5 +32,6 @@ int main() {
                             }else{
                                 printf( "F!" ) ;
                             }//end if
+							                      
     return 0 ;
 }//end function
