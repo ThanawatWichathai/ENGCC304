@@ -1,1 +1,54 @@
+#include <stdio.h>
 
+int power( int base, int exp ) {
+    int result = 1 ;
+    for( int i = 0 ; i < exp ; i++ ) {
+        result *= base;  
+    }//end for
+    
+    return result ;
+}//end function
+
+int isArmstrong( int n ) {
+    if( n < 0 ) 
+	return 0 ;  
+
+    int digits = 0 ;   
+    int temp = n ;
+
+    do {
+        digits++ ;
+        temp /= 10 ;
+    } while( temp != 0 ) ;
+
+    int sum = 0 ;
+    temp = n ;
+
+
+    do {
+        int g = temp % 10 ;        
+        sum += power(g, digits) ;  
+        temp /= 10 ;               
+    } while( temp != 0 ) ;
+
+    return sum == n ;  
+}//end function
+
+int main() {
+    int n ;
+
+    printf( "Enter Number: " ) ;
+    if( scanf( "%d", &n) != 1 ) {
+        printf( "Invalid input.\n" ) ; 
+        
+        return 0 ;
+    }//end if
+
+    if( isArmstrong(n) ) {
+        printf( "Pass.\n" ) ;     
+    }else {
+        printf( "Not Pass.\n" ) ; 
+	}//end if
+	
+    return 0 ;
+}//end function
