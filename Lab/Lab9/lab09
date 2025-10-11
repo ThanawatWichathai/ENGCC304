@@ -4,43 +4,43 @@ int main() {
 	
 	int n = 0 ;
 	
-	printf( "Enter N: \n" ) ;
+	printf( "Enter N: " ) ;
 	scanf( "%d", &n ) ;
 	
 	int Num[n] ;
 	
-	for(int i = 0 ; i < n ; i++ ) {
-		printf( "Enter value[%d] : ", i ) ;
+	for( int i = 0 ; i < n ; i++ ) {
+		printf( "\nEnter value[%d] : ", i ) ;
 		scanf( "%d", &Num[i] ) ;
 	}//end for
 	
 	printf( "\nIndex: " ) ;
-	for( int i = 0 ; i < n ; i++ ) {
-		printf( "%d ", Num[i] ) ;
+	for( int i = 0 ; i < n ; i++ ) { // Display Num[i]
+		printf( "%d ", i ) ;
 	}//end for
 	
 	int isPrime = 0 ;
 	int j = 0 ;
 	
- 	printf("\nArray: ") ;
-    for (int i = 0 ; i < n ; i++) {
+ 	printf( "\nArray: " ) ;
+    for( int i = 0 ; i < n ; i++ ) {
         isPrime = 1 ; 
 
-        if (Num[i] < 2)
+        if( Num[i] < 2 ) {
             isPrime = 0 ;
-        else {
-            for ( j = 2 ; j * j <= Num[i] ; j++) {
-                if (Num[i] % j == 0) {
+		}else {
+            for ( j = 2 ; j * j <= Num[i] ; j++) {  //check , Num[i] is isPrime ?
+                if( Num[i] % j == 0 ) {
                     isPrime = 0 ;
                     break ; 
                 }//end if
             }//end for
         }//end if
 
-        if (isPrime == 1) {
-            printf("%d ", Num[i]) ;
+        if( isPrime == 1 ) {
+            printf( "%d ", Num[i] ) ;
         }else {
-            printf("# ") ;
+            printf( "# " ) ;
     	}//end if
     }//end for
 	
