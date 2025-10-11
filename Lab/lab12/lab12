@@ -29,7 +29,7 @@ int main() {
     scanf( "%s" , LastName ) ;
     strcpy( Students[ i ].Name , FirstName ) ;
     strcat( Students[ i ].Name , " " ) ;
-    strcat( Students[ i ].Name , LastName );
+    strcat( Students[ i ].Name , LastName ) ;
     
     printf( "ID:\n") ;
     scanf( "%s" , Students[ i ].ID ) ;
