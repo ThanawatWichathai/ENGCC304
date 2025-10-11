@@ -1,1 +1,29 @@
+#include <stdio.h>
+#include <string.h>
 
+void Ispalindrome ( char word[100] ) ;
+
+int main() {
+    char word[100] ;
+
+    printf( "Enter word: " ) ;
+    scanf( "%s", word ) ;  
+
+    int len = strlen(word) ;
+    int isPalindrome = 1 ; 
+
+    for( int i = 0 ; i < len / 2 ; i++ ) {
+        if( word[i] != word[len - 1 - i] ) {
+            isPalindrome = 0 ;
+            break ;
+        }//end if
+    }//end for
+
+    if( isPalindrome == 1 ) {
+        printf("Pass.\n") ;
+    }else {
+        printf( "Not Pass.\n" ) ;
+	}//end if
+	
+    return 0 ;
+}//end function
