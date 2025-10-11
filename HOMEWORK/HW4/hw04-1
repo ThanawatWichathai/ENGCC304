@@ -1,1 +1,21 @@
+#include <stdio.h>
 
+int main() {
+    int days = 0 ;
+    long long seconds = 0 ;
+    const int seconds_per_day = 86400 ;
+
+    printf( "Input Days : " ) ;
+    if( scanf("%d", &days) != 1 || days < 0) {
+        printf( "Invalid input. Please enter a non-negative integer for days.\n" ) ;
+        
+        return 1 ;
+    }//end if
+
+    seconds = (long long)days * seconds_per_day ;
+
+    printf( "Output\n" ) ;
+    printf( "%d days = %lld seconds\n", days, seconds ) ;
+
+    return 0;
+}//end function
