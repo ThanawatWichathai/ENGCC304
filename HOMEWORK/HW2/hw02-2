@@ -1,0 +1,150 @@
+#include <stdio.h>
+
+int main() {
+
+    // ชื่อสินค้า
+    char product_name1[] = "Coke" ;
+    char product_name2[] = "Green Water" ;
+    char product_name3[] = "Americano" ;
+    char product_name4[] = "Sweet Latte" ;
+    char product_name5[] = "Sunflower nuts" ;
+    char product_name6[] = "Pap Bean " ;
+    char product_name7[] = "Meat Sour" ;
+
+    // ราคาสินค้า
+    int price_coke = 10 ;
+    int price_green_water = 12 ;
+    int price_americano = 30 ;
+    int price_latte = 35 ;
+    int price_sunflower_nuts = 13 ;
+    int price_pap_bean = 20 ;
+    int price_meat_sour = 15 ;
+
+    // เงินเริ่มต้นในตู้
+    int total_cash_in_drawer = 2000 ;
+
+    int choice = 0 ; //ตัวเลือกให้ลูกค้ากด
+    int total_cost = 0 ; //ราคารวมทั้งหมด
+
+    printf("--- Welcome to the ตะพาบลอยน้ำ Machine ---\n") ;
+
+    while (1) { //ให้ลูกค้าเลือกสินค้า
+        printf("\n======= Please Select an Item =======\n") ;
+        printf("[1] %s (%d THB)\n", product_name1, price_coke);
+        printf("[2] %s (%d THB)\n", product_name2, price_green_water);
+        printf("[3] %s (%d THB)\n", product_name3, price_americano);
+        printf("[4] %s (%d THB)\n", product_name4, price_latte);
+        printf("[5] %s (%d THB)\n", product_name5, price_sunflower_nuts);
+        printf("[6] %s (%d THB)\n", product_name6, price_pap_bean);
+        printf("[7] %s (%d THB)\n", product_name7, price_meat_sour);
+        printf("***********************************************\n");
+        printf("[8] Checkout and Pay\n"); //คิดเงินและชำระเงิน
+        printf("[0] Cancel\n"); //ยกเลิกรายการ
+        printf("===================================\n");
+
+        printf("Current Total: %d THB\n", total_cost); //ยอดรวมปัจจุบัน
+        printf("Enter your choice: "); //เลือก
+        scanf("%d", &choice);
+
+        // เป็นทางเลือกสินค้า 7 ชนิด
+        if (choice >= 1 && choice <= 7) {
+            switch (choice) {
+                case 1: total_cost += price_coke ; // บวกราคาเข้าไปในยอดรวม
+                        printf("--> Added '%s' to your cart.\n", product_name1) ;// เพิ่มสินค้าลงในตะกร้า
+                        break ;
+                case 2: total_cost += price_green_water ;
+                        printf("--> Added '%s' to your cart.\n", product_name2) ;
+                        break ;
+                case 3: total_cost += price_americano ;
+                        printf("--> Added '%s' to your cart.\n", product_name3) ; 
+                        break ;
+                case 4: total_cost += price_latte ;
+                        printf("--> Added '%s' to your cart.\n", product_name4) ;
+                        break ;
+                case 5: total_cost += price_sunflower_nuts ;
+                        printf("--> Added '%s' to your cart.\n", product_name5) ; 
+                        break ;
+                case 6: total_cost += price_pap_bean ;
+                        printf("--> Added '%s' to your cart.\n", product_name6) ; 
+                        break ;
+                case 7: total_cost += price_meat_sour ;
+                        printf("--> Added '%s' to your cart.\n", product_name7) ; 
+                        break ;
+            }//end switch
+        }//end if
+
+        else if (choice == 8) { // ลูกค้ากด 8 เพื่อไปจ่ายเงิน
+            printf("Proceeding to checkout...\n") ;
+            break ; //ออกจากลูป while แล้วไปทำขั้นตอนต่อไป
+        }else if (choice == 0) { // ลูกค้ากด 0 เพื่อยกเลิกรายการ
+            printf("Transaction cancelled.\n") ;
+            return 0 ; // ออกจากลูปทันที
+        }else {
+            printf("!!! Invalid option. Please try again. !!!\n") ; // กรณีเผื่อลูกค้ากดปุ่มมั่ว
+        }//end if
+    }//end while
+
+    // ขั้นตอนการจ่ายเงิน
+    if (total_cost > 0) {
+        printf("\n======= Checkout Summary =======\n") ; // เช็กว่ามีรายการไหม
+        printf("Total amount due: %d THB\n", total_cost) ; // ยอดที่ต้องชำระ
+
+        int payment = 0 ;
+        printf("Please enter your payment amount: ") ; // ให้ลูกค้าใส่จำนวนนเงิน
+        scanf("%d", &payment) ;
+
+        if (payment < total_cost) {
+            printf("!!! Insufficient payment! Transaction cancelled. !!!\n"); // หากยอดเงินไม่พอ จะแสดงว่าเงินของไม่เพียงพอ
+        } else {
+            int change = payment - total_cost ; // คำณวนเงินทอน
+            printf("Payment received: %d THB\n", payment) ;
+            printf("Change due: %d THB\n", change) ;
+
+            total_cash_in_drawer += total_cost ; // เงินในตู้จะเท่ากับ ราคาที่ขายได้
+
+
+
+            // รายละเอียดตอนทอนเงิน
+            if (change > 0) {
+                printf("Change details:\n") ; //รายละเอียดเงินทอน
+                int temp_change = change ; //เพื่อไม่ให้ค่า change หายไประหว่างคำนวณ และมีการหารเอาเศษด้วย
+                if (temp_change >= 500) {
+                    printf("- 500 THB bills: %d\n", temp_change / 500) ;
+                    temp_change %= 500 ;
+                }
+                if (temp_change >= 100) {
+                    printf("- 100 THB bills: %d\n", temp_change / 100) ;
+                    temp_change %= 100 ;
+                }
+                if (temp_change >= 50) {
+                    printf("- 50 THB bills: %d\n", temp_change / 50) ;
+                    temp_change %= 50 ;
+                }
+                if (temp_change >= 20) {
+                    printf("- 20 THB bills: %d\n", temp_change / 20) ;
+                    temp_change %= 20 ;
+                }
+                if (temp_change >= 10) {
+                    printf("- 10 THB coins: %d\n", temp_change / 10) ;
+                    temp_change %= 10 ;
+                }
+                if (temp_change >= 5) {
+                    printf("- 5 THB coins: %d\n", temp_change / 5) ;
+                    temp_change %= 5 ;
+                }
+                if (temp_change >= 1) {
+                    printf("- 1 THB coins: %d\n", temp_change / 1) ;
+                }
+            }//end if
+            printf("\nThank you for your purchase!\n") ; //แสดงข้อความขอบคุณ
+        }//end if
+    } else {
+        printf("\nYou did not select any items.\n") ; //แสดงข้อความว่ายังไม่ได้เลือกสินค้า
+    }
+
+    // สรุปยอดเงินที่เหลือในตู้
+    printf("\n--- Final Cash in Drawer ---\n");
+    printf("Total money in machine: %ld THB\n", total_cash_in_drawer);
+
+    return 0;
+}//end function
