@@ -21,7 +21,7 @@ int countWordsInFile(const char *filename) {
 
 int main() {
     char filename[100] ;
-    int totalWords ;
+    int totalWords = 0 ;
 
     printf( "Enter file name:\n" ) ;
     scanf( "%s", filename ) ;
